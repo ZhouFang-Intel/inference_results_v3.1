@@ -338,7 +338,7 @@ ifeq ($(SUPPORT_DOCKER), 1)
 		-e HISTFILE=/mnt/${HOME}/.mlperf_bash_history \
 		--shm-size=32gb \
 		--ulimit memlock=-1 \
-		-v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro \
+		-v /etc/timezone/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro \
 		--security-opt apparmor=unconfined --security-opt seccomp=unconfined \
 		--name $(DOCKER_NAME) -h $(subst _,-,$(shell echo $(DOCKER_NAME) | cut -c -64)) --add-host $(DOCKER_NAME):127.0.0.1 \
 		--cpuset-cpus $(shell taskset -c -p $$$$ | awk '{print $$NF}') \

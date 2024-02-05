@@ -48,7 +48,8 @@ then
         echo "The fp8 quantized model is already available at ${MLPERF_SCRATCH_PATH}/models/GPTJ-6B/fp8-quantized-ammo/GPTJ-07142023.pth."
     else
         echo "Copying fp8 quantized GPTJ model to the model dir"
-        cp /opt/GPTJ-07142023.pth ${MLPERF_SCRATCH_PATH}/models/GPTJ-6B/fp8-quantized-ammo/GPTJ-07142023.pth
+        mkdir ${MLPERF_SCRATCH_PATH}/models/GPTJ-6B/fp8-quantized-ammo
+	cp /opt/GPTJ-07142023.pth ${MLPERF_SCRATCH_PATH}/models/GPTJ-6B/fp8-quantized-ammo/GPTJ-07142023.pth
     fi
 else
     echo "WARNING: the FP8 quantized model is not found under /opt/GPTJ-07142023.pth"

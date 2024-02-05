@@ -85,7 +85,7 @@ endif
 USE_WIN_PTD ?= 0
 
 # GIT binary
-GIT_BIN := /home/utils/git-2.18.0/bin/git
+GIT_BIN := /usr/bin/git
 ifeq ($(ARCH), aarch64)
     GIT_BIN = $(shell which git)
 endif

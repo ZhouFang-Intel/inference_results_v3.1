@@ -77,6 +77,7 @@ def onnx_to_tf_name(onnx_name):
 
 def get_onnx_fake_quant_weights(path):
     """Return weights from ONNX model file."""
+    print(f"model_path: {path}")
     model = onnx.load(path)
     weights = model.graph.initializer
     weights_dict = dict([(onnx_to_tf_name(w.name), np.frombuffer(w.raw_data, np.float32).reshape(w.dims)) for w in weights])

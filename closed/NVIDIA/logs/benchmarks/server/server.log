@@ -1,0 +1,534 @@
+[2023-12-16 15:03:04,763 main.py:230 INFO] Detected system ID: KnownSystem.ACC_H100
+[2023-12-16 15:03:05,723 generate_conf_files.py:107 INFO] Generated measurements/ entries for ACC_H100_TRT/bert-99/Server
+[2023-12-16 15:03:05,724 __init__.py:46 INFO] Running command: ./build/bin/harness_bert --logfile_outdir="/work/build/logs/2023.12.16-15.02.47/ACC_H100_TRT/bert-99/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=10833 --server_num_issue_query_threads=1 --gpu_batch_size=256 --tensor_path="build/preprocessed_data/squad_tokenized/input_ids.npy,build/preprocessed_data/squad_tokenized/segment_ids.npy,build/preprocessed_data/squad_tokenized/input_mask.npy" --use_graphs=false --gpu_inference_streams=2 --gpu_copy_streams=1 --soft_drop=0.99 --gpu_engines="./build/engines/ACC_H100/bert/Server/bert-Server-gpu-int8_S_384_B_256_P_2_vs.custom_k_99_MaxP.plan" --mlperf_conf_path="build/loadgen-configs/ACC_H100_TRT/bert-99/Server/mlperf.conf" --user_conf_path="build/loadgen-configs/ACC_H100_TRT/bert-99/Server/user.conf" --scenario Server --model bert
+[2023-12-16 15:03:05,724 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.BERT
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /home/zhouf/mlperf_inference_data/data
+enable_interleaved : False
+gpu_batch_size : 256
+gpu_copy_streams : 1
+gpu_inference_streams : 2
+input_dtype : int32
+input_format : linear
+log_dir : /work/build/logs/2023.12.16-15.02.47
+precision : int8
+preprocessed_data_dir : /home/zhouf/mlperf_inference_data/preprocessed_data
+scenario : Scenario.Server
+server_num_issue_query_threads : 1
+server_target_qps : 3000
+soft_drop : 0.99
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='GENUINE INTEL(R) XEON(R)', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=72, threads_per_core=2): 2}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=395.271148, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=395271148000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 PCIe', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=79.6474609375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=85520809984), max_power_limit=350.0, pci_id='0x233110DE', compute_sm=90): 1})), numa_conf=None, system_id='ACC_H100')
+tensor_path : build/preprocessed_data/squad_tokenized/input_ids.npy,build/preprocessed_data/squad_tokenized/segment_ids.npy,build/preprocessed_data/squad_tokenized/input_mask.npy
+use_graphs : False
+use_small_tile_gemm_plugin : False
+system_id : ACC_H100
+config_name : ACC_H100_bert_Server
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : True
+power_limit : None
+cpu_freq : None
+&&&& RUNNING BERT_HARNESS # ./build/bin/harness_bert
+I1216 15:03:05.811697 41222 main_bert.cc:163] Found 1 GPUs
+I1216 15:03:06.949595 41222 bert_server.cc:142] Engine Path: ./build/engines/ACC_H100/bert/Server/bert-Server-gpu-int8_S_384_B_256_P_2_vs.custom_k_99_MaxP.plan
+[I] [TRT] Loaded engine size: 414 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +64, now: CPU 588, GPU 1414 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 590, GPU 1486 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +290, now: CPU 0, GPU 290 (MiB)
+I1216 15:03:07.514070 41222 bert_server.cc:203] Engines Creation Completed
+I1216 15:03:07.517798 41222 bert_core_vs.cc:385] Engine - Device Memory requirements: 704645120
+I1216 15:03:07.517810 41222 bert_core_vs.cc:393] Engine - Number of Optimization Profiles: 2
+I1216 15:03:07.517822 41222 bert_core_vs.cc:415] Engine - Profile 0 maxDims 98304 Bmax=256 Smax=384
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 176, GPU 2096 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +64, now: CPU 177, GPU 2160 (MiB)
+I1216 15:03:07.607213 41222 bert_core_vs.cc:426] Setting Opt.Prof. to 0
+I1216 15:03:07.607251 41222 bert_core_vs.cc:444] Context creation complete. Max supported batchSize: 256
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +0, now: CPU 1, GPU 290 (MiB)
+I1216 15:03:07.607524 41222 bert_core_vs.cc:476] Setup complete
+I1216 15:03:07.608558 41222 bert_core_vs.cc:385] Engine - Device Memory requirements: 704645120
+I1216 15:03:07.608567 41222 bert_core_vs.cc:393] Engine - Number of Optimization Profiles: 2
+I1216 15:03:07.608573 41222 bert_core_vs.cc:415] Engine - Profile 1 maxDims 98304 Bmax=256 Smax=384
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 300, GPU 3024 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +72, now: CPU 300, GPU 3096 (MiB)
+I1216 15:03:07.698873 41222 bert_core_vs.cc:426] Setting Opt.Prof. to 1
+[I] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +0, now: CPU 2, GPU 290 (MiB)
+I1216 15:03:07.701088 41222 bert_core_vs.cc:444] Context creation complete. Max supported batchSize: 256
+I1216 15:03:07.702406 41222 bert_core_vs.cc:476] Setup complete
+I1216 15:03:07.702419 41222 bert_server.cc:244] Apply soft drop policy with threshold = 0.99
+I1216 15:03:07.702456 41222 bert_server.cc:250] Use number of server IssueQuery threads = 1
+I1216 15:03:07.850718 41222 main_bert.cc:184] Starting running actual test.
+I1216 15:13:09.424217 41229 bert_server.cc:88] Total number of soft drop tasks: 9332 out of 918340 total tasks
+I1216 15:13:09.425133 41230 bert_server.cc:88] Total number of soft drop tasks: 8647 out of 884388 total tasks
+I1216 15:13:15.413913 41222 main_bert.cc:190] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : BERT SERVER
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 3004.54
+Result is : INVALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: NO
+Recommendations:
+Early Stopping Result:
+ * Run unsuccessful.
+ * Processed 1802728 queries.
+ * Would need to run at least 26456 more queries,
+ with the run being successful if every additional
+ query were under latency.
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 3004.44
+
+Min latency (ns)                : 2365081
+Max latency (ns)                : 604105106452
+Mean latency (ns)               : 3012084849
+50.00 percentile latency (ns)   : 10761333
+90.00 percentile latency (ns)   : 15274569
+95.00 percentile latency (ns)   : 16794276
+97.00 percentile latency (ns)   : 17953292
+99.00 percentile latency (ns)   : 27783758
+99.90 percentile latency (ns)   : 539291383820
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 3000
+target_latency (ns): 130000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 148687905518835231
+sample_index_rng_seed : 520418551913322573
+schedule_rng_seed : 811580660758947900
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 10833
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2023-12-16 15:13:16,803 run_harness.py:167 INFO] Result: result_scheduled_samples_per_sec: 3004.54, Result is INVALID
+[2023-12-16 15:13:16,818 generate_conf_files.py:107 INFO] Generated measurements/ entries for ACC_H100_TRT/resnet50/Server
+[2023-12-16 15:13:16,819 harness.py:313 INFO] Updated LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+[2023-12-16 15:13:16,819 __init__.py:46 INFO] Running command: ./build/bin/harness_default --logfile_outdir="/work/build/logs/2023.12.16-15.02.47/ACC_H100_TRT/resnet50/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=2048 --deque_timeout_usec=2000 --gpu_copy_streams=4 --gpu_inference_streams=2 --use_batcher_thread_per_device=true --use_cuda_thread_per_device=true --use_deque_limit=true --gpu_batch_size=128 --map_path="data_maps/imagenet/val_map.txt" --tensor_path="build/preprocessed_data/imagenet/ResNet50/int8_linear" --use_graphs=true --gpu_engines="./build/engines/ACC_H100/resnet50/Server/resnet50-Server-gpu-b128-int8.lwis_k_99_MaxP.plan" --mlperf_conf_path="build/loadgen-configs/ACC_H100_TRT/resnet50/Server/mlperf.conf" --user_conf_path="build/loadgen-configs/ACC_H100_TRT/resnet50/Server/user.conf" --max_dlas=0 --scenario Server --model resnet50
+[2023-12-16 15:13:16,819 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.ResNet50
+buffer_manager_thread_count : 0
+data_dir : /home/zhouf/mlperf_inference_data/data
+deque_timeout_usec : 2000
+gpu_batch_size : 128
+gpu_copy_streams : 4
+gpu_inference_streams : 2
+input_dtype : int8
+input_format : linear
+log_dir : /work/build/logs/2023.12.16-15.02.47
+map_path : data_maps/imagenet/val_map.txt
+precision : int8
+preprocessed_data_dir : /home/zhouf/mlperf_inference_data/preprocessed_data
+scenario : Scenario.Server
+server_target_qps : 30000
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='GENUINE INTEL(R) XEON(R)', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=72, threads_per_core=2): 2}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=395.271148, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=395271148000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 PCIe', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=79.6474609375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=85520809984), max_power_limit=350.0, pci_id='0x233110DE', compute_sm=90): 1})), numa_conf=None, system_id='ACC_H100')
+tensor_path : build/preprocessed_data/imagenet/ResNet50/int8_linear
+use_batcher_thread_per_device : True
+use_cuda_thread_per_device : True
+use_deque_limit : True
+use_graphs : True
+system_id : ACC_H100
+config_name : ACC_H100_resnet50_Server
+workload_setting : WorkloadSetting(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 4
+config_ver : lwis_k_99_MaxP
+accuracy_level : 99%
+inference_server : lwis
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING Default_Harness # ./build/bin/harness_default
+[I] mlperf.conf path: build/loadgen-configs/ACC_H100_TRT/resnet50/Server/mlperf.conf
+[I] user.conf path: build/loadgen-configs/ACC_H100_TRT/resnet50/Server/user.conf
+Creating QSL.
+Finished Creating QSL.
+Setting up SUT.
+[I] [TRT] Loaded engine size: 41 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +66, now: CPU 0, GPU 1022 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +72, now: CPU 0, GPU 1094 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +19, now: CPU 0, GPU 19 (MiB)
+[I] Device:0.GPU: [0] ./build/engines/ACC_H100/resnet50/Server/resnet50-Server-gpu-b128-int8.lwis_k_99_MaxP.plan has been successfully loaded.
+[E] [TRT] 3: [runtime.cpp::~Runtime::399] Error Code 3: API Usage Error (Parameter check failed at: runtime/rt/runtime.cpp::~Runtime::399, condition: mEngineCounter.use_count() == 1. Destroying a runtime before destroying deserialized engines created by the runtime leads to undefined behavior.
+)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +66, now: CPU 0, GPU 1030 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +64, now: CPU 0, GPU 1094 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +199, now: CPU 0, GPU 218 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 0, GPU 1380 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +74, now: CPU 0, GPU 1454 (MiB)
+[I] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +199, now: CPU 0, GPU 417 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 0, GPU 1742 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +70, now: CPU 0, GPU 1812 (MiB)
+[I] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +199, now: CPU 1, GPU 616 (MiB)
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 0, GPU 2102 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +74, now: CPU 0, GPU 2176 (MiB)
+[I] [TRT] Could not set default profile 0 for execution context. Profile index must be set explicitly.
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +199, now: CPU 1, GPU 815 (MiB)
+[I] Start creating CUDA graphs
+[I] Capture 512 CUDA graphs
+[I] Finish creating CUDA graphs
+[I] Creating batcher thread: 0 EnableBatcherThreadPerDevice: true
+[I] Creating cuda thread: 0
+Finished setting up SUT.
+Starting warmup. Running for a minimum of 5 seconds.
+Finished warmup. Ran for 5.22023s.
+Starting running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : LWIS_Server
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 30013.00
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Run successful.
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 30012.50
+
+Min latency (ns)                : 5230638
+Max latency (ns)                : 14168608
+Mean latency (ns)               : 9126691
+50.00 percentile latency (ns)   : 9068513
+90.00 percentile latency (ns)   : 11150882
+95.00 percentile latency (ns)   : 11532586
+97.00 percentile latency (ns)   : 11761407
+99.00 percentile latency (ns)   : 12153771
+99.90 percentile latency (ns)   : 12775013
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 30000
+target_latency (ns): 15000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 148687905518835231
+sample_index_rng_seed : 520418551913322573
+schedule_rng_seed : 811580660758947900
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 2048
+
+No warnings encountered during test.
+
+No errors encountered during test.
+Finished running actual test.
+Device Device:0.GPU processed:
+  1 batches of size 1
+  2 batches of size 30
+  1 batches of size 31
+  1 batches of size 32
+  3 batches of size 33
+  6 batches of size 34
+  11 batches of size 35
+  20 batches of size 36
+  25 batches of size 37
+  43 batches of size 38
+  76 batches of size 39
+  118 batches of size 40
+  173 batches of size 41
+  245 batches of size 42
+  304 batches of size 43
+  454 batches of size 44
+  637 batches of size 45
+  892 batches of size 46
+  1098 batches of size 47
+  1432 batches of size 48
+  1741 batches of size 49
+  2112 batches of size 50
+  2524 batches of size 51
+  2938 batches of size 52
+  3369 batches of size 53
+  3998 batches of size 54
+  4279 batches of size 55
+  4927 batches of size 56
+  5168 batches of size 57
+  5328 batches of size 58
+  5539 batches of size 59
+  5807 batches of size 60
+  5751 batches of size 61
+  5810 batches of size 62
+  5525 batches of size 63
+  5405 batches of size 64
+  5066 batches of size 65
+  4646 batches of size 66
+  4553 batches of size 67
+  4000 batches of size 68
+  3678 batches of size 69
+  3431 batches of size 70
+  2976 batches of size 71
+  2776 batches of size 72
+  2405 batches of size 73
+  2320 batches of size 74
+  2046 batches of size 75
+  1952 batches of size 76
+  1945 batches of size 77
+  1881 batches of size 78
+  1934 batches of size 79
+  1978 batches of size 80
+  2146 batches of size 81
+  2218 batches of size 82
+  2420 batches of size 83
+  2581 batches of size 84
+  2783 batches of size 85
+  2997 batches of size 86
+  3062 batches of size 87
+  3173 batches of size 88
+  3389 batches of size 89
+  3458 batches of size 90
+  3653 batches of size 91
+  3670 batches of size 92
+  3805 batches of size 93
+  3642 batches of size 94
+  3773 batches of size 95
+  3783 batches of size 96
+  3665 batches of size 97
+  3601 batches of size 98
+  3529 batches of size 99
+  3338 batches of size 100
+  3208 batches of size 101
+  3065 batches of size 102
+  3030 batches of size 103
+  2694 batches of size 104
+  2653 batches of size 105
+  2395 batches of size 106
+  2209 batches of size 107
+  2068 batches of size 108
+  1849 batches of size 109
+  1813 batches of size 110
+  1657 batches of size 111
+  1482 batches of size 112
+  1329 batches of size 113
+  1180 batches of size 114
+  1153 batches of size 115
+  1055 batches of size 116
+  910 batches of size 117
+  844 batches of size 118
+  733 batches of size 119
+  613 batches of size 120
+  514 batches of size 121
+  454 batches of size 122
+  446 batches of size 123
+  405 batches of size 124
+  342 batches of size 125
+  274 batches of size 126
+  281 batches of size 127
+  1557 batches of size 128
+  Memcpy Calls: 0
+  PerSampleCudaMemcpy Calls: 18007800
+  BatchedCudaMemcpy Calls: 1
+&&&& PASSED Default_Harness # ./build/bin/harness_default
+[2023-12-16 15:23:49,838 run_harness.py:167 INFO] Result: result_scheduled_samples_per_sec: 30013, Result is VALID
+[2023-12-16 15:23:49,852 harness.py:236 INFO] The harness will load 1 plugins: ['build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so']
+[2023-12-16 15:23:49,854 generate_conf_files.py:107 INFO] Generated measurements/ entries for ACC_H100_TRT/gptj-99/Server
+[2023-12-16 15:23:49,854 __init__.py:46 INFO] Running command: ./build/bin/harness_gpt --plugins="build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so" --logfile_outdir="/work/build/logs/2023.12.16-15.02.47/ACC_H100_TRT/gptj-99/Server" --logfile_prefix="mlperf_log_" --performance_sample_count=13368 --gpu_batch_size=32 --tensor_path="build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/masked_tokens.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy" --use_graphs=false --use_fp8=true --gpu_inference_streams=1 --gpu_copy_streams=1 --tensor_parallelism=1 --enable_sort=false --num_sort_segments=2 --gpu_engines="./build/engines/ACC_H100/gptj/Server/gptj-Server-gpu-b32-fp16.custom_k_99_MaxP.plan" --mlperf_conf_path="build/loadgen-configs/ACC_H100_TRT/gptj-99/Server/mlperf.conf" --user_conf_path="build/loadgen-configs/ACC_H100_TRT/gptj-99/Server/user.conf" --scenario Server --model gptj
+[2023-12-16 15:23:49,854 __init__.py:53 INFO] Overriding Environment
+benchmark : Benchmark.GPTJ
+buffer_manager_thread_count : 0
+coalesced_tensor : True
+data_dir : /home/zhouf/mlperf_inference_data/data
+enable_sort : False
+gpu_batch_size : 32
+gpu_copy_streams : 1
+gpu_inference_streams : 1
+input_dtype : int32
+input_format : linear
+log_dir : /work/build/logs/2023.12.16-15.02.47
+num_sort_segments : 2
+precision : fp16
+preprocessed_data_dir : /home/zhouf/mlperf_inference_data/preprocessed_data
+scenario : Scenario.Server
+server_target_qps : 5
+system : SystemConfiguration(host_cpu_conf=CPUConfiguration(layout={CPU(name='GENUINE INTEL(R) XEON(R)', architecture=<CPUArchitecture.x86_64: AliasedName(name='x86_64', aliases=(), patterns=())>, core_count=72, threads_per_core=2): 2}), host_mem_conf=MemoryConfiguration(host_memory_capacity=Memory(quantity=395.271148, byte_suffix=<ByteSuffix.GB: (1000, 3)>, _num_bytes=395271148000), comparison_tolerance=0.05), accelerator_conf=AcceleratorConfiguration(layout=defaultdict(<class 'int'>, {GPU(name='NVIDIA H100 PCIe', accelerator_type=<AcceleratorType.Discrete: AliasedName(name='Discrete', aliases=(), patterns=())>, vram=Memory(quantity=79.6474609375, byte_suffix=<ByteSuffix.GiB: (1024, 3)>, _num_bytes=85520809984), max_power_limit=350.0, pci_id='0x233110DE', compute_sm=90): 1})), numa_conf=None, system_id='ACC_H100')
+tensor_parallelism : 1
+tensor_path : build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_ids_padded.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/masked_tokens.npy,build/preprocessed_data/cnn_dailymail_tokenized_gptj/input_lengths.npy
+use_fp8 : True
+use_graphs : False
+system_id : ACC_H100
+config_name : ACC_H100_gptj_Server
+workload_setting : WorkloadSetting(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+optimization_level : plugin-enabled
+use_cpu : False
+use_inferentia : False
+num_profiles : 1
+config_ver : custom_k_99_MaxP
+accuracy_level : 99%
+inference_server : custom
+skip_file_checks : False
+power_limit : None
+cpu_freq : None
+&&&& RUNNING GPT_HARNESS # ./build/bin/harness_gpt
+[I] Loading plugin: build/plugins/../TRTLLM/cpp/build/tensorrt_llm/plugins/libnvinfer_plugin.so
+I1216 15:23:50.478477 41242 main_gpt.cc:122] Found 1 GPUs
+I1216 15:23:51.800937 41242 gpt_server.cc:215] Loading 1 engine(s)
+I1216 15:23:51.801004 41242 gpt_server.cc:218] Engine Path: ./build/engines/ACC_H100/gptj/Server/gptj-Server-gpu-b32-fp16.custom_k_99_MaxP.plan
+[I] [TRT] Loaded engine size: 6177 MiB
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +6, GPU +66, now: CPU 18186, GPU 7164 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +2, GPU +72, now: CPU 18188, GPU 7236 (MiB)
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6165, now: CPU 0, GPU 6165 (MiB)
+I1216 15:24:03.266043 41242 gpt_server.cc:290] Engines Deserialization Completed
+I1216 15:24:03.307950 41242 gpt_core.cc:64] GPTCore 0: MPI Rank - 0 at Device Id - 0
+I1216 15:24:03.308070 41242 gpt_core.cc:262] Engine - Vocab size: 50401 Padded vocab size: 50401 Beam width: 4
+I1216 15:24:03.315819 41242 gpt_core.cc:90] Engine - Device Memory requirements: 7545819136
+I1216 15:24:03.315825 41242 gpt_core.cc:99] Engine - Total Number of Optimization Profiles: 2
+I1216 15:24:03.315829 41242 gpt_core.cc:100] Engine - Number of Optimization Profiles Per Core: 2
+I1216 15:24:03.315832 41242 gpt_core.cc:101] Engine - Start Index of Optimization Profiles: 0
+[I] [TRT] [MS] Running engine with multi stream info
+[I] [TRT] [MS] Number of aux streams is 1
+[I] [TRT] [MS] Number of total worker streams is 2
+[I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 5844, GPU 14436 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +64, now: CPU 5845, GPU 14500 (MiB)
+I1216 15:24:04.791844 41242 gpt_core.cc:115] Setting Opt.Prof. to 0
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 6165 (MiB)
+[I] [TRT] [MS] Running engine with multi stream info
+[I] [TRT] [MS] Number of aux streams is 1
+[I] [TRT] [MS] Number of total worker streams is 2
+[I] [TRT] [MS] The main stream provided by execute/enqueue calls is the first worker stream
+[I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +64, now: CPU 5945, GPU 14632 (MiB)
+[I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +74, now: CPU 5946, GPU 14706 (MiB)
+I1216 15:24:05.440202 41242 gpt_core.cc:115] Setting Opt.Prof. to 1
+[I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 6165 (MiB)
+[I] [TRT] Switching optimization profile from: 0 to 1. Please ensure there are no enqueued operations pending in this context prior to switching profiles
+I1216 15:24:05.504458 41242 gpt_core.cc:144] Setup complete
+I1216 15:24:05.504489 41242 gpt_core.cc:1026] Device 0: Warm up bypassed.
+I1216 15:24:05.504606 41242 main_gpt.cc:237] Starting running actual test.
+I1216 15:34:07.392372 41242 main_gpt.cc:241] Finished running actual test.
+================================================
+MLPerf Results Summary
+================================================
+SUT name : GPT SERVER MAIN
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 4.95
+Result is : VALID
+  Performance constraints satisfied : Yes
+  Min duration satisfied : Yes
+  Min queries satisfied : Yes
+  Early stopping satisfied: Yes
+Early Stopping Result:
+ * Run successful.
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 4.94
+
+Min latency (ns)                : 533299040
+Max latency (ns)                : 6213178900
+Mean latency (ns)               : 2752903278
+50.00 percentile latency (ns)   : 2653932346
+90.00 percentile latency (ns)   : 3979139123
+95.00 percentile latency (ns)   : 4397136560
+97.00 percentile latency (ns)   : 4704095454
+99.00 percentile latency (ns)   : 5290574923
+99.90 percentile latency (ns)   : 6013226830
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 5
+target_latency (ns): 20000000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 100
+max_query_count : 0
+qsl_rng_seed : 148687905518835231
+sample_index_rng_seed : 520418551913322573
+schedule_rng_seed : 811580660758947900
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 0
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 13368
+
+No warnings encountered during test.
+
+No errors encountered during test.
+[2023-12-16 15:34:08,598 run_harness.py:167 INFO] Result: result_scheduled_samples_per_sec: 4.95105, Result is VALID
+ 
+======================== Result summaries: ========================
+
+ ACC_H100_TRT-custom_k_99_MaxP-Server:
+   bert-99:
+     performance: result_scheduled_samples_per_sec: 3004.54, Result is INVALID
+   gptj-99:
+     performance: result_scheduled_samples_per_sec: 4.95105, Result is VALID
+ 
+ ACC_H100_TRT-lwis_k_99_MaxP-Server:
+   resnet50:
+     performance: result_scheduled_samples_per_sec: 30013, Result is VALID
+ 
+
+======================== Extra Perf Stats: ========================
+
+ ACC_H100_TRT-custom_k_99_MaxP-Server:
+    FileNotFoundError: Cannot find perf logs for ACC_H100_TRT/bert-99/Server at build/artifacts/closed/NVIDIA/results/ACC_H100_TRT/bert-99/Server/performance/run_1. Non-NVIDIA users ignore this. NVIDIA users run `make pull_artifacts_repo`.
+    Server 99-percentile latency 27783758 ns is 0.21 of the target_latency 130000000 ns
+
+======================== Extra Perf Stats: ========================
+
+ ACC_H100_TRT-lwis_k_99_MaxP-Server:
+    FileNotFoundError: Cannot find perf logs for ACC_H100_TRT/resnet50/Server at build/artifacts/closed/NVIDIA/results/ACC_H100_TRT/resnet50/Server/performance/run_1. Non-NVIDIA users ignore this. NVIDIA users run `make pull_artifacts_repo`.
+    Server 99-percentile latency 12153771 ns is 0.81 of the target_latency 15000000 ns
+
+======================== Extra Perf Stats: ========================
+
+ ACC_H100_TRT-custom_k_99_MaxP-Server:
+    FileNotFoundError: Cannot find perf logs for ACC_H100_TRT/gptj-99/Server at build/artifacts/closed/NVIDIA/results/ACC_H100_TRT/gptj-99/Server/performance/run_1. Non-NVIDIA users ignore this. NVIDIA users run `make pull_artifacts_repo`.
+    Server 99-percentile latency 5290574923 ns is 0.26 of the target_latency 20000000000 ns
